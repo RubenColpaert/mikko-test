@@ -2,6 +2,8 @@
 
 namespace Ruben\Salary;
 
+use Ruben\Salary\Exceptions\DateException;
+
 trait DateValidationTrait
 {
     /**
@@ -13,7 +15,7 @@ trait DateValidationTrait
     protected function validateMonth(int $month)
     {
         if ($month < 1 || $month > 12) {
-            throw new \RuntimeException('The month should be between 1 and 12');
+            throw DateException::invalidMonth();
         }
     }
 }
